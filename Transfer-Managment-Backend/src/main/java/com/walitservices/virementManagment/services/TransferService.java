@@ -17,10 +17,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TransferService {
 
-    private TransferRepository transferRepository;
+    private final TransferRepository transferRepository;
 
     @Transactional
-    private Transfer createTransfer(TransferRequestDTO transferRequestDTO){
+    public Transfer createTransfer(TransferRequestDTO transferRequestDTO){
         Transfer transfer = Transfer.builder()
                 .senderAccount(transferRequestDTO.getSenderAccount())
                 .receiverAccount(transferRequestDTO.getReceiverAccount())
@@ -34,12 +34,12 @@ public class TransferService {
 
 
     @Transactional(readOnly = true)
-    private List<Transfer> getAllTransfers(){
+    public List<Transfer> getAllTransfers(){
         return transferRepository.findAll();
     }
 
     @Transactional
-    private Transfer updateTransferStatus(Long id, TransferStatusUpdateDTO transferStatusUpdateDTO){
+    public Transfer updateTransferStatus(Long id, TransferStatusUpdateDTO transferStatusUpdateDTO){
         Transfer transfer = transferRepository.findById(id).
                 orElseThrow(()-> new ResourceNotFoundException("Transfer not found with id: " + id));
 
