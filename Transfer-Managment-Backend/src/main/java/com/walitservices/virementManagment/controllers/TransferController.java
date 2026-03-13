@@ -15,12 +15,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/transfers")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH})
 public class TransferController {
     private final TransferService transferService;
 
     @GetMapping
-    private ResponseEntity<List<Transfer>> getAllTransfers(){
+    public ResponseEntity<List<Transfer>> getAllTransfers(){
         return ResponseEntity.ok(transferService.getAllTransfers());
     }
 
