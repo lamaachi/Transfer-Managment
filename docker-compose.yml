@@ -1,0 +1,24 @@
+services:
+  virement-backend:
+    build:
+      context: ./Transfer-Managment-Backend
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - transfer-net
+
+  virement-frontend:
+    build:
+      context: ./Transfer-managment-front
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - virement-backend
+    networks:
+      - transfer-net
+
+networks:
+  transfer-net:
+    driver: bridge
