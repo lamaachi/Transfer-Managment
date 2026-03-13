@@ -1,0 +1,26 @@
+<nz-layout class="app-layout">
+  <nz-header>
+    <div class="header-container">
+      <div class="logo">
+        <span nz-icon nzType="bank" nzTheme="outline"></span>
+        G-Virements
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal" class="nav-menu">
+        <li nz-menu-item [routerLink]="['/transfers']" routerLinkActive="nz-menu-item-selected">
+          <span nz-icon nzType="unordered-list"></span>
+          Consultation
+        </li>
+        <li nz-menu-item [routerLink]="['/new-transfer']" routerLinkActive="nz-menu-item-selected">
+          <span nz-icon nzType="plus-circle"></span>
+          Nouveau Virement
+        </li>
+      </ul>
+    </div>
+  </nz-header>
+  <nz-content>
+    <div class="inner-content">
+      <router-outlet></router-outlet>
+    </div>
+  </nz-content>
+  <nz-footer>Gestion de Virements ©2026</nz-footer>
+</nz-layout>

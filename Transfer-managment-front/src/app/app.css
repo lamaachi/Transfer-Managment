@@ -1,0 +1,57 @@
+.app-layout {
+  min-height: 100vh;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-menu {
+  line-height: 64px;
+}
+
+.inner-content {
+  background: #fff;
+  padding: 24px;
+  min-height: calc(100vh - 184px);
+  margin: 24px 50px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+nz-footer {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.45);
+  padding: 24px 50px;
+}
+
+.initiation-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 32px;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+.initiation-container h2, .list-container h2 {
+  margin-bottom: 24px;
+  color: #1f1f1f;
+  font-weight: 600;
+}
+
+.list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
