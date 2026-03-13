@@ -1,0 +1,42 @@
+<div class="list-container">
+  <h2>Consultation des virements</h2>
+  
+  <nz-table #basicTable [nzData]="transfers" [nzLoading]="loading">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Expéditeur</th>
+        <th>Destinataire</th>
+        <th>Montant</th>
+        <th>Statut</th>
+        <th>Date d'exécution</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.id }}</td>
+        <td>{{ data.senderAccount }}</td>
+        <td>{{ data.receiverAccount }}</td>
+        <td>{{ data.amount | currency:'MAD':'symbol':'1.2-2' }}</td>
+        <td>
+          <nz-tag [nzColor]="getStatusColor(data.status)">
+            {{ data.status }}
+          </nz-tag>
+        </td>
+        <td>{{ data.executionDate | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td>
+          <ng-container *ngIf="data.status === TransferStatus.PENDING">
+            <button nz-button nzType="primary" nzSize="small" (click)="updateStatus(data.id!, TransferStatus.VALIDATED)">
+              Valider
+            </button>
+            <nz-divider nzType="vertical"></nz-divider>
+            <button nz-button nzDanger nzSize="small" (click)="updateStatus(data.id!, TransferStatus.REJECTED)">
+              Rejeter
+            </button>
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

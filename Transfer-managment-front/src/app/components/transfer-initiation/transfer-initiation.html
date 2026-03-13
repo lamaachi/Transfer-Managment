@@ -1,0 +1,37 @@
+<div class="initiation-container">
+  <nz-form nzLayout="vertical" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <h2>Initier un nouveau virement</h2>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="null" nzRequired>Compte Expéditeur</nz-form-label>
+      <nz-form-control nzErrorTip="Veuillez saisir le compte expéditeur">
+        <input nz-input formControlName="senderAccount" placeholder="Ex: FR76 1234 5678 9012" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="null" nzRequired>Compte Destinataire</nz-form-label>
+      <nz-form-control nzErrorTip="Veuillez saisir le compte destinataire">
+        <input nz-input formControlName="receiverAccount" placeholder="Ex: BE76 9876 5432 1098" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="null" nzRequired>Montant</nz-form-label>
+      <nz-form-control nzErrorTip="Veuillez saisir un montant valide (> 0)">
+        <nz-input-number
+          style="width: 100%"
+          formControlName="amount"
+          [nzMin]="1"
+          [nzStep]="10"
+          nzPlaceHolder="Montant en DH"
+        ></nz-input-number>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button nzType="primary" type="submit" (click)="submitForm()">Confirmer le virement</button>
+      </nz-form-control>
+    </nz-form-item>
+  </nz-form>
+</div>
