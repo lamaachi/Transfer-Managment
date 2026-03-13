@@ -30,7 +30,6 @@ Le projet est divisé en deux parties principales :
 *   **Ng Zorro Ant Design**
 *   **TypeScript**
 *   **Reactive Forms**
-*   **RxJS**
 
 ## Guide de Démarrage
 
@@ -61,8 +60,17 @@ Le projet est divisé en deux parties principales :
     ```
     L'application sera accessible sur `http://localhost:4200`.
 
+## Lancement avec Docker
+
+Le projet est entièrement prêt pour Docker. Vous pouvez lancer le backend et le frontend simultanément :
+
+1.  Assurez-vous que Docker Desktop est lancé.
+2.  À la racine du projet, exécutez :
+    ```bash
+    docker-compose up -d
+    ```
+3.  Accédez à l'application sur `http://localhost:4200`.
+
 ## Configuration de la Base de Données
 Le backend utilise une base de données H2 en mémoire. La console H2 est accessible à l'adresse `http://localhost:8081/h2-console` avec les paramètres configurés dans `application.yaml`.
 
----
-Développé avec ❤️ pour la gestion de virements.
